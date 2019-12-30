@@ -39,15 +39,4 @@ class DumpText extends Column{
             $this->_data['config']['componentDisabled'] = false;
         }
     }
-    public function prepareDataSource(array $dataSource)
-    {
-       foreach ($dataSource['data']['items'] as $id=>&$item){
-           $dumpText = $this->productRepository
-               ->getById($item['entity_id'])
-               ->getCustomAttribute('dump_text')
-                ->getValue();
-           $item['dump_text'] = $dumpText;
-       };
-       return $dataSource;
-    }
 }
