@@ -26,6 +26,7 @@ class UpgradeData implements UpgradeDataInterface{
      */
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
+<<<<<<< HEAD
         $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
         if(version_compare($context->getVersion(),'1.0.0','<')){
             $this->addSelectAttribute($eavSetup);
@@ -40,6 +41,22 @@ class UpgradeData implements UpgradeDataInterface{
 
     private function addSelectAttribute($eavSetup)
     {
+=======
+        if(version_compare($context->getVersion(),'1.0.0','<')){
+            $this->addSelectAttribute($setup);
+        }
+        if(version_compare($context->getVersion(),'1.0.1','<')){
+            $this->addVarcharAttribute($setup);
+        }
+        if(version_compare($context->getVersion(),'1.0.2','<')){
+            $this->applyPriceToNewProductType($setup);
+        }
+    }
+
+    private function addSelectAttribute(ModuleDataSetupInterface $setup)
+    {
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+>>>>>>> 4c9accb6f28172d6c3cbd6b5aae0db30f7b28f2c
         /** @var EavSetup $eavSetup */
         try {
             $eavSetup->addAttribute(
@@ -76,8 +93,14 @@ class UpgradeData implements UpgradeDataInterface{
         }
     }
 
+<<<<<<< HEAD
     private function addVarcharAttribute($eavSetup)
     {
+=======
+    private function addVarcharAttribute(ModuleDataSetupInterface $setup)
+    {
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+>>>>>>> 4c9accb6f28172d6c3cbd6b5aae0db30f7b28f2c
         /** @var EavSetup $eavSetup */
         try {
             $eavSetup->addAttribute(
@@ -88,7 +111,11 @@ class UpgradeData implements UpgradeDataInterface{
                     'backend' => '',
                     'frontend' => '',
                     'label' => 'Dump Text',
+<<<<<<< HEAD
                     'input' => 'text',
+=======
+                    'input' => 'input',
+>>>>>>> 4c9accb6f28172d6c3cbd6b5aae0db30f7b28f2c
                     'class' => '',
                     'source' => '',
                     'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
@@ -114,8 +141,14 @@ class UpgradeData implements UpgradeDataInterface{
         }
     }
 
+<<<<<<< HEAD
     private function applyPriceToNewProductType($eavSetup)
     {
+=======
+    private function applyPriceToNewProductType(ModuleDataSetupInterface $setup)
+    {
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+>>>>>>> 4c9accb6f28172d6c3cbd6b5aae0db30f7b28f2c
         $fieldList = [
             'price',
             'special_price',

@@ -39,6 +39,7 @@ class DumpText extends Column{
             $this->_data['config']['componentDisabled'] = false;
         }
     }
+<<<<<<< HEAD
     public function prepareDataSource(array $dataSource)
     {
        foreach ($dataSource['data']['items'] as $id=>&$item){
@@ -50,4 +51,6 @@ class DumpText extends Column{
        };
        return $dataSource;
     }
+=======
+>>>>>>> 4c9accb6f28172d6c3cbd6b5aae0db30f7b28f2c
 }
